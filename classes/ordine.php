@@ -4,9 +4,9 @@ class Ordine {
     private $user_id;
     private $product_id;
 
-    public function __construct($scadenza, $product_id)
+    public function __construct($mese_scadenza, $anno_scadenza, $product_id)
     {   
-        if (strtotime(DateTime::createFromFormat('m/y',$scadenza))>strtotime(date('m/y'))) {
+        if ($anno_scadenza>date('y') || ($anno_scadenza==date('y') & $mese_scadenza>=date('m')) ) {
             $this->product_id=$product_id;
         }
     }
