@@ -4,6 +4,7 @@ class Product
     protected $id;
     protected $name;
     protected $price;
+    protected $sconto=0;
 
     public function __construct($name)
     {
@@ -37,5 +38,10 @@ class Product
         $this->price = $price;
 
         return $this;
+    }
+
+    public function applyDiscount($sconto){
+        $discount=$this->price*$sconto/100;
+        $this->price-=$discount;
     }
 }
